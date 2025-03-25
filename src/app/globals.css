@@ -1,26 +1,219 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  h1 {
+    @apply text-5xl md:text-6xl;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h2 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  p, li, span, a, button, input, textarea, label {
+    @apply text-base md:text-lg;
+  }
+
+  body {
+    @apply bg-dark-900 text-secondary-100 min-h-screen;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative overflow-hidden z-10;
+  }
+  
+  .section-title {
+    @apply text-5xl md:text-6xl font-bold mb-8 text-center;
+  }
+  
+  .section-subtitle {
+    @apply text-xl md:text-2xl text-secondary-300 max-w-3xl mx-auto text-center mb-16;
+  }
+  
+  .skill-tag {
+    @apply text-dark-900 border border-primary-500 bg-primary-200;
+  }
+  
+  .card {
+    @apply bg-dark-800 rounded-xl shadow-md hover:shadow-xl transition-all p-6 border border-dark-700;
+  }
+  
+  .glass-card {
+    @apply bg-dark-800/70 backdrop-blur-md border border-dark-700 rounded-xl shadow-lg hover:shadow-xl transition-all text-secondary-100;
+  }
+  
+  .btn {
+    @apply px-7 py-4 text-lg rounded-full font-medium transition-all;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-secondary-50;
+  }
+  
+  .btn-outline {
+    @apply border border-primary-500 text-primary-400 hover:bg-dark-800;
+  }
+  
+  .nav-link {
+    @apply relative text-lg;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute w-0 h-0.5 bottom-0 left-0 bg-primary-500 transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .glass-effect {
+    @apply bg-dark-800/70 backdrop-blur-md border border-dark-700 rounded-xl shadow-lg;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600;
+  }
+
+  .font-heading {
+    @apply font-bold;
+  }
+
+  /* Стили секций с различными фонами */
+  .section-dark-900 {
+    @apply bg-dark-900 relative;
+  }
+
+  .section-dark-800 {
+    @apply bg-dark-800 relative;
+  }
+  
+  /* Градиентные переходы между секциями */
+  .section-transition-top {
+    @apply before:absolute before:top-0 before:left-0 before:right-0 before:h-16 before:bg-gradient-to-b before:from-dark-900 before:to-transparent before:z-10;
+  }
+  
+  .section-transition-bottom {
+    @apply after:absolute after:bottom-0 after:left-0 after:right-0 after:h-16 after:bg-gradient-to-t after:from-dark-900 after:to-transparent after:z-10;
+  }
+  
+  /* Декоративные фоновые элементы */
+  .bg-pattern {
+    @apply absolute inset-0 z-0 opacity-5;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg-glow {
+    @apply absolute rounded-full opacity-10 blur-3xl bg-primary-500/20;
+  }
+  
+  .bg-glow-1 {
+    @apply bg-glow w-96 h-96 -right-48 top-24;
+  }
+  
+  .bg-glow-2 {
+    @apply bg-glow w-96 h-96 -left-48 bottom-24;
+  }
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progressAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress-width);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Background animation */
+.bg-animate {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+/* Progress bar animation */
+[style*="--progress-width"] div {
+  animation: progressAnimation 1.5s ease-out forwards;
 }
