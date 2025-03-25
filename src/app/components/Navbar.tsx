@@ -50,7 +50,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           <Link href="#" className="text-secondary-50 text-2xl md:text-3xl font-bold hover:text-primary-400 transition-colors">
-            Олег<span className="text-primary-500">.dev</span>
+            Ovsyannikov Oleg<span className="text-primary-500"></span>
           </Link>
 
           {/* Desktop Menu */}

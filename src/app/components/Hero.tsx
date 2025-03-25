@@ -76,7 +76,7 @@ export default function Hero() {
               <p className="text-2xl text-secondary-200 mb-2">Python & JavaScript Developer</p>
               <div className="flex items-center text-secondary-300">
                 <span className="inline-flex items-center text-lg">
-                  <span className="mr-2">26 лет</span>
+                  <span className="mr-2">27 лет</span>
                   <span className="mx-2">•</span>
                   <span>Ростов-на-Дону</span>
                 </span>
@@ -110,7 +110,7 @@ export default function Hero() {
                 <span>Telegram</span>
               </motion.a>
               <motion.a 
-                href="mailto:oleg.ovsyannikov@example.com" 
+                href="ovsyannikov263@gmail.com" 
                 className="hover-lift flex items-center gap-2 text-secondary-200 hover:text-primary-400 glass-card rounded-full px-5 py-2.5 transition-colors duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -127,7 +127,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
               >
                 {/* <FaLinkedin className="text-2xl" /> */}
-                <span>HH.ru</span>
+                <span>hh.ru</span>
               </motion.a>
             </motion.div>
 
